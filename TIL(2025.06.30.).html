@@ -1,0 +1,87 @@
+제목 : [내일배움캠프 data_6기 134일차] + 오늘의 학습 키워드
+
+1. 오늘 학습 키워드: 
+- [v] Daily scrum
+- [] 코드카타 문제 풀이, 복습
+- [] 컴활 1급 필기 공부
+- [] 강의 및 복습(세션 강의 및 파이썬(판다스) 강의)
+- [] 최종 프로젝트(데이터 EDA, 시각화, 대시보드)
+- [] PYTHON 개인 공부
+- [] 아티클 예습, 복습
+- [] Daily scrum
+
+2. 오늘 학습 한 내용을 나만의 언어로 정리하기
+ - 
+
+3. 코드카타
+ - SQL: 
+  
+ - PYTHON:
+혼자서 하는 틱택토
+def solution(board):
+    answer = -1
+    
+    # 표시 오류 체크를 위해 O, X의 표시 개수 구함
+    cntO, cntX = 0, 0
+    for b in board:
+        cntO += b.count("O")
+        cntX += b.count("X")
+        
+    # 실수 체크함
+    vicO = isVictory(board, "O")
+    vicX = isVictory(board, "X")
+    if (vicO == True and vicX == True):
+        answer = 0
+    elif (vicO and cntO == cntX):
+        answer = 0
+    elif (vicX and cntO == cntX + 1):
+        answer = 0
+    elif(cntO < cntX or cntX + 1 < cntO):
+        answer = 0
+    else:
+        answer = 1
+    return answer
+
+def isVictory(board, attack):
+    for b in board:
+        if(b == attack * 3):
+            return True
+        
+    for i in range(3):
+        tmp = []
+        for j in range(3):
+            if(board[j][i] == attack):
+                tmp.append(board[j][i])
+        if("".join(tmp) == attack * 3):
+            return True
+            
+    tmpj = []
+    tmpk = []
+    j, k = 0, 2
+    for i in range(3):
+        if(board[i][j] == attack):
+            tmpj.append(board[i][j])
+            j += 1
+        if(board[i][k] == attack):
+            tmpk.append(board[i][k])
+            k -= 1
+    if ("".join(tmpj) == attack * 3 or "".join(tmpk) == attack * 3):
+        return True
+    return False
+
+4. 강의 듣기
+ - 파이썬(머신러닝) 강의
+
+5. 아티클 예습, 복습 
+
+6. 내일 학습 할 것은 무엇인지
+ - SQL 코드카타(2025.06.29.까지)
+ - PYTHON 알고리즘 코드카타(2025.06.29.까지)
+ - 컴활 1급 필기 공부
+ - SQL 개인 공부
+ - PYTHON 개인 공부
+ - 아티클 예습 및 복습
+ - 최종 프로젝트(데이터 EDA, 시각화, 대시보드)
+ - Daily Scrum
+
+#내일배움캠프 #사전캠프 #TIL
