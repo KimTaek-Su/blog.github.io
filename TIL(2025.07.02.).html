@@ -17,6 +17,63 @@
  - SQL: 
 
  - PYTHON:
+- 이모티콘 할인행사
+import heapq
+from itertools import product
+
+def solution(users, emoticons):
+    discount_rate = [10, 20, 30 , 40]
+    # 각 이모티콘에게 적용할
+    # 할인율 쌍 구하기
+    candidate = list(product(discount_rate, repeat = len(emoticons)))
+    
+    # 할인율 쌍이 적용된 이모티콘 가격을 
+    # 사전에 계산
+    new_emoticons_price = []
+    for candi in candidate:
+        temp = []
+        for rate, price in zip(candi, emoticons):
+            temp.append(price * (100 - rate) * 0.01)
+        new_emoticons_price.append(temp)
+        
+    answer = []
+    for i in range(len(new_emoticons_price)):
+        # 해당 할인율 쌍에서
+        # 발생한 모든 유저의 이모티콘 구매 비용
+        all_user_total = 0
+        # 발생한 플러스 구독자 수
+        plus = 0
+        for j in range(len(users)):
+            percent = users[j][0]
+            max_price = users[j][1]
+            # 현재 유저의 이모티콘 구매 비용
+            user_total = 0
+            flag = False
+            for k in range(len(new_emoticons_price[i])):
+            # 할인율 후보쌍과 이모티콘 새 가격 리스트는
+            # index이 동일함
+                if not flag and candidate[i][k] >= percent:
+                    user_total += new_emoticons_price[i][k]
+                    # 총 금액이 기준가격을 넘겼나?
+                    if user_total >= max_price:
+                        plus += 1
+                        user_total = 0
+                        flag = True
+                    else:
+                        # 넘겨서 flag가 true면
+                        # 더 계산할 필요 없으니 pass
+                        pass
+            # pass 후 여기로 넘어옴
+            # flag = 플러스 구독
+            # !flag = 플러스 구독 x
+            if not flag:
+                all_user_total += user_total
+        # heapq를 통해 answer 배열을 자동 정렬
+        # 이때 -를 곱해 최대 heqpq로 생성
+        # 조건상 plus가 우선이니 plus를 앞에
+        heapq.heappush(answer, (-plus, -all_user_total))
+        
+    return [-answer[0][0], int(-answer[0][1])]
 
 4. 강의 듣기
  - 스트림릿 강의
