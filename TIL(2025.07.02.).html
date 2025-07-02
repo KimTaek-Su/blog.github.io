@@ -24,6 +24,18 @@ where id % 2 = 0;
 select count(city) - count(distinct city)
 from station;
 
+- Weather Observation Station 5
+select city, length(city)
+from station
+where city like 'a%'
+order by length(city) asc
+limit 1;
+
+select city, length(city)
+from station
+order by length(city) desc
+limit 1;
+
  - PYTHON:
 - 이모티콘 할인행사
 import heapq
