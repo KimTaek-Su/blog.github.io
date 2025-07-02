@@ -75,6 +75,25 @@ def solution(users, emoticons):
         
     return [-answer[0][0], int(-answer[0][1])]
 
+- 요격 시스템
+def solution(targets):
+    targets = sorted(targets, key = lambda x : -x[1])
+    # print("Sorted Targets: ", targets, "\n")
+    
+    i = 0
+    while len(targets) > 0:
+        now = targets.pop()
+        i += 1
+        # print("now: ", now)
+        
+        if len(targets) > 0:
+            while ((targets[-1][0] < now[1]) & (targets[-1][1] >= now[1])):
+                targets.pop()
+                if len(targets) == 0:
+                    break
+                    
+    return i
+
 4. 강의 듣기
  - 스트림릿 강의
 
