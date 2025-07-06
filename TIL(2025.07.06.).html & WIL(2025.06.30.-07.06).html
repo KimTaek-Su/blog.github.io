@@ -17,6 +17,21 @@
  - SQL: 
 
  - PYTHON:
+  - 유사 칸토어 비트열
+def solution(n, l, r):
+    answer = 0
+    
+    for i in range(l-1, r):
+        if(cantor(i)):
+            answer += 1
+    return answer
+
+def cantor(i):
+    if(i % 5 == 2):
+        return 0
+    if(i < 5):
+        return 1
+    return cantor(i // 5)
 
 4. 강의 듣기
  - 스트림릿 강의
