@@ -16,6 +16,9 @@
 3. 코드카타
  - SQL: 
   - Weather Observation Station 10
+select distinct city
+from station
+where right(city, 1) not in ('a', 'e', 'i', 'o', 'u')
 
  - PYTHON:
   - 이중우선순위큐
