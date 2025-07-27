@@ -1,0 +1,64 @@
+제목 : [내일배움캠프 data_6기 x일차] + 오늘의 학습 키워드
+
+1. 오늘 학습 키워드: 
+- [v] Daily scrum
+- [] 코드카타 문제 풀이, 복습
+- [] 컴활 1급 필기 공부
+- [] 강의 및 복습
+- [] PYTHON 개인 공부
+- [] 아티클 예습, 복습
+- [] Daily scrum
+
+2. 오늘 학습 한 내용을 나만의 언어로 정리하기
+ - 
+
+3. 코드카타
+ - SQL: 
+  - Weather Observation Station 10
+select distinct city
+from station
+where right(city, 1) not in ('a', 'e', 'i', 'o', 'u')
+
+ - PYTHON:
+  - 이중우선순위큐
+import heapq
+def solution(operations):
+    answer = []
+    
+    q = []
+    for operation in operations:
+        x, num = operation.split()
+        num = int(num)
+        
+        if x == 'I':
+            heapq.heappush(q, num)
+        elif x == 'D' and num == 1:
+            if len(q) != 0:
+                max_value = max(q)
+                q.remove(max_value)
+        else:
+            if len(q) != 0:
+                heapq.heappop(q)
+    
+    if len(q) == 0:
+        answer = [0, 0]
+    else:
+        answer = [max(q), heapq.heappop(q)]
+        
+    return answer
+
+4. 강의 듣기
+ - 스트림릿 강의
+
+5. 아티클 예습, 복습 
+
+6. 내일 학습 할 것은 무엇인지
+ - SQL 코드카타(2025.07.29.까지)
+ - PYTHON 알고리즘 코드카타(2025.07.29.까지)
+ - 컴활 1급 필기 공부
+ - SQL 개인 공부
+ - PYTHON 개인 공부
+ - 아티클 예습 및 복습
+ - Daily Scrum
+
+#내일배움캠프 #사전캠프 #TIL
