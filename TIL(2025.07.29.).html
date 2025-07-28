@@ -1,0 +1,66 @@
+제목 : [내일배움캠프 data_6기 x일차] + 오늘의 학습 키워드
+
+1. 오늘 학습 키워드: 
+- [v] Daily scrum
+- [v] 코드카타 문제 풀이, 복습
+- [] 컴활 1급 필기 공부
+- [] 강의 및 복습
+- [] PYTHON 개인 공부
+- [] 아티클 예습, 복습
+- [] Daily scrum
+
+2. 오늘 학습 한 내용을 나만의 언어로 정리하기
+ - 
+
+3. 코드카타
+ - SQL: 
+  - Weather Observation Station 11
+select distinct city
+from station
+where left(city, 1) not in ('a', 'e', 'i', 'o', 'u')
+   or right(city, 1) not in ('a', 'e', 'i', 'o', 'u')
+
+ - PYTHON:
+  - 베스트앨범해시
+from collections import defaultdict
+
+def solution(genres, plays):
+    answer = []
+    genre_dic = defaultdict(lambda: 0)
+    total_list = defaultdict(lambda: [])
+    
+    for i in range(len(genres)):
+        genre_dic[genres[i]] += plays[i]
+        total_list[genres[i]].append((plays[i], i))
+        
+    genre_dic = sorted(genre_dic.items(), key = lambda x:x[1], reverse = True)
+    
+    for i in total_list:
+        total_list[i] = sorted(total_list[i], key = lambda x:x[0], reverse = True)[:2]
+        
+    while len(genre_dic) > 0:
+        genre_max = genre_dic.pop(0)
+        for t in total_list:
+            if t == genre_max[0]:
+                if len(total_list[t]) > 1:
+                    answer.append(total_list[t][0][1])
+                    answer.append(total_list[t][1][1])
+                else:
+                    answer.append(total_list[t][0][1])
+    return answer
+
+4. 강의 듣기
+ - 스트림릿 강의
+
+5. 아티클 예습, 복습 
+
+6. 내일 학습 할 것은 무엇인지
+ - SQL 코드카타(2025.07.29.까지)
+ - PYTHON 알고리즘 코드카타(2025.07.29.까지)
+ - 컴활 1급 필기 공부
+ - SQL 개인 공부
+ - PYTHON 개인 공부
+ - 아티클 예습 및 복습
+ - Daily Scrum
+
+#내일배움캠프 #사전캠프 #TIL
