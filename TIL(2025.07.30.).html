@@ -14,11 +14,12 @@
 
 3. 코드카타
  - SQL: 
-  - Weather Observation Station 12
-select distinct city
-from station
-where left(city, 1) not in ('a', 'e', 'i', 'o', 'u') 
-  and right(city, 1) not in ('a', 'e', 'i', 'o', 'u')
+  - Higher Than 75 Marks
+select name
+from students
+where marks > 75
+order by right(name, 3), id asc
+;
 
  - PYTHON:
   - 섬 연결하기
