@@ -14,11 +14,15 @@
 
 3. 코드카타
  - SQL: 
-  - Employee Salaries
-select name
-from employee
-where salary > 2000 and months < 10
-order by employee_id
+  - Type of Triangle
+SELECT 
+    CASE 
+        WHEN  A = B AND B = C AND A = C THEN 'Equilateral'
+        WHEN A + B > C AND A = B OR B = C OR A = C THEN 'Isosceles'
+        WHEN A + B > C AND A <> B AND B <> C AND A <> C THEN 'Scalene'
+        ELSE 'Not A Triangle'
+    END
+FROM TRIANGLES;
 
  - PYTHON:
   - 입국심사이분탐색
