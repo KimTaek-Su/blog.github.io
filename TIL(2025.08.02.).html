@@ -1,0 +1,61 @@
+제목 : [내일배움캠프 data_6기 x일차] + 오늘의 학습 키워드
+
+1. 오늘 학습 키워드: 
+- [v] Daily scrum
+- [] 코드카타 문제 풀이, 복습
+- [] 컴활 1급 필기 공부
+- [] 강의 및 복습
+- [] PYTHON 개인 공부
+- [] 아티클 예습, 복습
+- [] Daily scrum
+
+2. 오늘 학습 한 내용을 나만의 언어로 정리하기
+ - 
+
+3. 코드카타
+ - SQL: 
+  - Type of Triangle
+SELECT 
+    CASE 
+        WHEN  A = B AND B = C AND A = C THEN 'Equilateral'
+        WHEN A + B > C AND A = B OR B = C OR A = C THEN 'Isosceles'
+        WHEN A + B > C AND A <> B AND B <> C AND A <> C THEN 'Scalene'
+        ELSE 'Not A Triangle'
+    END
+FROM TRIANGLES;
+
+ - PYTHON:
+  - 입국심사이분탐색
+ def solution(n, times):
+    answer = 0
+    start, end = 1, max(times) * n
+    while start <= end:
+        mid = (start + end) // 2
+        people = 0
+        for time in times:
+            people += mid // time
+            if people >= n:
+                break
+        if people >= n:
+            answer = mid
+            end = mid - 1
+        else:
+            start = mid + 1
+    
+    return answer
+     
+4. 강의 듣기
+ - 스트림릿 강의
+
+5. 아티클 예습, 복습 
+
+6. 내일 학습 할 것은 무엇인지
+ - SQL 코드카타(2025.08.02.까지)
+ - PYTHON 알고리즘 코드카타(2025.08.02.까지)
+ - 컴활 1급 필기 공부
+ - SQL 개인 공부
+ - PYTHON 개인 공부
+ - 아티클 예습 및 복습
+ - Daily Scrum
+
+#내일배움캠프 #사전캠프 #TIL
