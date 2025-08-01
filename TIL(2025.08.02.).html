@@ -14,15 +14,17 @@
 
 3. 코드카타
  - SQL: 
-  - Type of Triangle
-SELECT 
-    CASE 
-        WHEN  A = B AND B = C AND A = C THEN 'Equilateral'
-        WHEN A + B > C AND A = B OR B = C OR A = C THEN 'Isosceles'
-        WHEN A + B > C AND A <> B AND B <> C AND A <> C THEN 'Scalene'
-        ELSE 'Not A Triangle'
-    END
-FROM TRIANGLES;
+  - The PADS
+select concat(name, '(', left(occupation, 1), ')')
+from occupations
+order by name asc
+;
+
+select concat('There are a total of ', count(occupation), ' ', lower(occupation), 's.')
+from occupations
+group by occupation
+order by count(occupation) asc, lower(occupation) asc
+;
 
  - PYTHON:
   - 가장 긴 팰린드롬
