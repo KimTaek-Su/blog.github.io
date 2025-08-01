@@ -26,6 +26,11 @@ group by occupation
 order by count(occupation) asc, lower(occupation) asc
 ;
 
+  - Revising Aggregations - The Count Function
+select count(name)
+from city
+where population > 100000
+
  - PYTHON:
   - 가장 긴 팰린드롬
  def isPalidrome(str):
