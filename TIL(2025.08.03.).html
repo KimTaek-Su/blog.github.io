@@ -14,17 +14,10 @@
 
 3. 코드카타
  - SQL: 
-  - The PADS
-select concat(name, '(', left(occupation, 1), ')')
-from occupations
-order by name asc
-;
-
-select concat('There are a total of ', count(occupation), ' ', lower(occupation), 's.')
-from occupations
-group by occupation
-order by count(occupation) asc, lower(occupation) asc
-;
+  - Revising Aggregations - The Sum Function
+select sum(population)
+from city
+where district like 'California'
 
   - Revising Aggregations - The Count Function
 select count(name)
