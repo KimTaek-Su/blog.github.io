@@ -1,0 +1,91 @@
+제목 : [내일배움캠프 data_6기 x일차] + 오늘의 학습 키워드
+
+1. 오늘 학습 키워드: 
+- [v] Daily scrum
+- [] 코드카타 문제 풀이, 복습
+- [] 컴활 1급 필기 공부
+- [] 강의 및 복습
+- [] PYTHON 개인 공부
+- [] 아티클 예습, 복습
+- [] Daily scrum
+
+2. 오늘 학습 한 내용을 나만의 언어로 정리하기
+ - 
+
+3. 코드카타
+ - SQL: 
+  - The PADS
+select concat(name, '(', left(occupation, 1), ')')
+from occupations
+order by name asc
+;
+
+select concat('There are a total of ', count(occupation), ' ', lower(occupation), 's.')
+from occupations
+group by occupation
+order by count(occupation) asc, lower(occupation) asc
+;
+
+  - Revising Aggregations - The Count Function
+select count(name)
+from city
+where population > 100000
+
+ - PYTHON:
+  - 가장 긴 팰린드롬
+ def isPalidrome(str):
+    # 왼쪽 끝, 오른쪽에서부터 좁혀오면서 비교하기
+    left, right = 0, len(str) - 1
+    while(left < right):
+        if str[left] != str[right]:
+            return False
+        else:
+            left += 1
+            right -= 1
+    return True
+
+def solution(s):
+    answer = 0
+    # 가장 긴 문자열 길이부터 탐색하면서 팰린드롬이면 종료
+    for length in range(len(s), 0, -1):
+        for i in range(0, len(s) - length + 1):
+            if isPalidrome(s[i:i + length]):
+                return length
+            
+s = "a"
+print(solution(s))
+
+  - 연속 펄스 부분 수열의 합
+def solution(sequence):
+    length = len(sequence)
+    pulse = lambda x : 1 if x % 2 else -1
+    sequence = [pulse(idx) * sequence[idx] for idx in range(length)]
+    
+    dp = [[0, 0] for _ in range(length)]
+    dp[0] = [sequence[0], sequence[0]]
+    
+    for i in range(1, length):
+        num = sequence[i]
+        dp[i][0] = min(num, num + dp[i - 1][0])
+        dp[i][1] = max(num, num + dp[i - 1][1])
+        
+    min_val = min(map(min, dp))
+    max_val = max(map(max, dp))
+    
+    return max(abs(min_val), abs(max_val))
+     
+4. 강의 듣기
+ - 스트림릿 강의
+
+5. 아티클 예습, 복습 
+
+6. 내일 학습 할 것은 무엇인지
+ - SQL 코드카타(2025.08.02.까지)
+ - PYTHON 알고리즘 코드카타(2025.08.02.까지)
+ - 컴활 1급 필기 공부
+ - SQL 개인 공부
+ - PYTHON 개인 공부
+ - 아티클 예습 및 복습
+ - Daily Scrum
+
+#내일배움캠프 #사전캠프 #TIL
