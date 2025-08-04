@@ -1,1 +1,89 @@
+제목 : [내일배움캠프 data_6기 x일차] + 오늘의 학습 키워드
 
+1. 오늘 학습 키워드: 
+- [v] Daily scrum
+- [] 코드카타 문제 풀이, 복습
+- [] 컴활 1급 필기 공부
+- [] 강의 및 복습
+- [] PYTHON 개인 공부
+- [] 아티클 예습, 복습
+- [] Daily scrum
+
+2. 오늘 학습 한 내용을 나만의 언어로 정리하기
+ - 
+
+3. 코드카타
+ - SQL: 
+  - Revising Aggregations - Averages
+select avg(population)
+from city
+where district like 'California'
+
+  - Average Population
+select round(avg(population))
+from city
+
+ - PYTHON:
+  - 부대복귀
+from collections import deque
+
+def bfs(graph, st):
+    q = deque()
+    visited = [0] * (ncnt + 1)
+    time = [0] * (ncnt + 1)
+    q.append(st)
+    visited[st] = 1
+    cnt = 0
+    while q:
+        nd = q.popleft()
+        if nd in graph:
+            for n in graph[nd]:
+                if visited[n] == 0:
+                    q.append(n)
+                    visited[n] = 1
+                    time[n] = time[nd] + 1
+                    
+    return time
+
+def solution(n, roads, sources, destination):
+    
+    global ncnt; ncnt = n # 전역변수 선언
+    graph = {} # 양방향 그래프 추가
+    for x, y in roads:
+        if x in graph:
+            graph[x].append(y)
+        else:
+            graph[x] = [y]
+        if y in graph:
+            graph[y].append(x)
+        else:
+            graph[y] = [x]
+    # 도착점부터 모든 경로에 대한 소요시간 배열
+    time_arr = bfs(graph, destination)
+    
+    res = []    
+    for s in sources:
+        ti = time_arr[s] # 부대원 위치까지 걸린 시간
+        # 출발, 도착지가 다른데 0인 경우 방문 불가한 곳
+        if s != destination and ti == 0:
+            res.append(-1)
+        else:
+            res.append(ti)
+    
+    return res
+     
+4. 강의 듣기
+ - 스트림릿 강의
+
+5. 아티클 예습, 복습 
+
+6. 내일 학습 할 것은 무엇인지
+ - SQL 코드카타(2025.08.02.까지)
+ - PYTHON 알고리즘 코드카타(2025.08.02.까지)
+ - 컴활 1급 필기 공부
+ - SQL 개인 공부
+ - PYTHON 개인 공부
+ - 아티클 예습 및 복습
+ - Daily Scrum
+
+#내일배움캠프 #사전캠프 #TIL
