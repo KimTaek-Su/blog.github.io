@@ -14,14 +14,9 @@
 
 3. 코드카타
  - SQL: 
-  - Japan Population
-select sum(population)
-from city
-where countrycode like 'JPN'
-
-  - Population Density Difference
-select max(population) - min(population)
-from city
+  - The Blunder
+select ceiling(avg(salary)) - round(avg(replace(cast(salary as char),'0','')))
+from employees
 
  - PYTHON:
   - 양과 늑대
