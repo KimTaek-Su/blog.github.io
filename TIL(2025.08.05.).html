@@ -19,6 +19,10 @@ select sum(population)
 from city
 where countrycode like 'JPN'
 
+  - Population Density Difference
+select max(population) - min(population)
+from city
+
  - PYTHON:
   - 부대복귀
 from collections import deque
