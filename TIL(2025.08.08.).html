@@ -22,6 +22,11 @@ order by earnings desc
 limit 1
 ;
 
+  - Weather Observation Station 13
+select round(sum(LAT_N),4)
+from station
+where 38.7880 < lat_n and lat_n < 137.2345
+
  - PYTHON:
   - 110 옮기기
 def solution(s):
