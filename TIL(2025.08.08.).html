@@ -14,9 +14,13 @@
 
 3. 코드카타
  - SQL: 
-  - The Blunder
-select ceiling(avg(salary)) - round(avg(replace(cast(salary as char),'0','')))
-from employees
+  - Top Earners
+select max(salary * months) as earnings, count(*)
+from employee
+group by salary * months
+order by earnings desc
+limit 1
+;
 
  - PYTHON:
   - 110 옮기기
